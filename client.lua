@@ -31,7 +31,7 @@ end)
 exports['qb-target']:AddBoxZone("Duty", vector3(-587.4, -1059.6, 23.45), 2.0, 2.5, { name="duty", heading = 270.0, debugPoly=Config.Debug, minZ=21.45, maxZ=23.45 }, 
 		{ options = { { type = "server", event = "QBCore:ToggleDuty", icon = "fas fa-clock", label = "Влез на смяна", job = "speedy" }, }, distance = 2.0 })
 
-RegisterNetEvent('kk-speedyjob:client:PedirEntrega', function()
+RegisterNetEvent('kk-speedyjob:client:PedInt', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"argue"})
     QBCore.Functions.Progressbar('falar_empregada', 'Оточняваш детайли за доставката', 5000, false, true, {
         disableMovement = true,
