@@ -11,6 +11,14 @@ BIG THANKS TO SEXAGON2
 
 ```
 
+2. add this to qb-core/shared/jobs
+```
+speedy = { label = 'Спиди', defaultDuty = true, offDutyPay = false, grades = { ['0'] = { name = 'Доставчик', payment = 250 } } },
+```
+
+
+
+
 Add to qb-target/init.lua:
 
 At Config.Peds:
