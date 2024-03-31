@@ -47,7 +47,6 @@ end)
 
 RegisterNetEvent('kk-speedyjob:server:jobGarage', function()
     local veh = QBCore.Functions.GetClosestVehicle()
-    if DecorExistOn((veh), "bs_vehicle") then
         QBCore.Functions.DeleteVehicle(veh)
         QBCore.Functions.Notify("Ти върна колата", "success")
     else
