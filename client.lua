@@ -77,6 +77,49 @@ RegisterNetEvent('kk-speedyjob:client:ReceivePayment', function()
     end)
 end)
 
+
+
+	RequestModel(Config.GaragePed) while not HasModelLoaded(Config.GaragePed) do Wait(0) end
+
+	jobPed = CreatePed(0, Config.GaragePed, Config.PedLocation, false, false)
+
+	SetEntityAsMissionEntity(jobPed, true, true)
+	SetPedFleeAttributes(jobPed, 0, 0)
+	SetBlockingOfNonTemporaryEvents(jobPed, true)
+	SetEntityInvincible(jobPed, true)
+	FreezeEntityPosition(jobPed, true)
+	loadAnimDict("timetable@ron@ig_3_couch")        
+	TaskPlayAnim(jobPed, "timetable@ron@ig_3_couch", "base", 8.0, 1.0, -1, 01, 0, 0, 0, 0)
+
+	exports['qb-target']:AddTargetEntity(jobPed, { 
+	    options = {
+		{ 
+		    type = "client",
+		    event = "randol_burgershot:client:jobGarage",
+		    icon = "fa-solid fa-clipboard-check",
+		    label = "Вземи кола",
+		    job = "speedy"
+		},
+		{ 
+		    type = "client",
+		    event = "randol_burgershot:client:storeGarage",
+		    icon = "fa-solid fa-clipboard-check",
+		    label = "Прибери кола",
+		    job = "speedy"
+		},
+	    }, 
+	    distance = 1.5, 
+	})
+    end
+end
+
+
+
+
+
+
+
+
 -- Funções
 
 function ExportDeliveryTarget()
@@ -114,6 +157,12 @@ function ExportDeliveryTarget()
         ExportDeliveryTarget10()
     end
 end
+
+
+
+
+
+
 
 function ExportDeliveryTarget1()
     exports['qb-target']:AddBoxZone("delivery_box", Config.DeliveryLoc1, 1, 1, {
