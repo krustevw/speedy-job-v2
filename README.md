@@ -24,9 +24,9 @@ Add to qb-target/init.lua:
 At Config.Peds:
 ```
     { --kk-speedyjob
-        model = 'a_f_y_rurmeth_01',
+        model = 'a_m_y_golfer_01',
         coords = vector4(10.18, -1604.18, 28.37, 221.03),
-        gender = 'female',
+        gender = 'male',
         freeze = true,
         invincible = false,
         blockevents = false,
@@ -37,7 +37,7 @@ At Config.TargetModels:
 ```
     ["deliveryped"] = {
         models = {
-            "a_f_y_rurmeth_01",
+            "a_m_y_golfer_01",
         },
         options = {
             {
