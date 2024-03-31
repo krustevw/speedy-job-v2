@@ -30,3 +30,27 @@ RegisterNetEvent('kk-speedyjob:server:ReceivePayment', function()
     Player.Functions.RemoveItem('delivery_recive', 1)
     Player.Functions.AddMoney('cash', payment)
 end)
+
+RegisterNetEvent('kk-speedyjob:server:jobGarage', function(vehicle)
+    local vehicle = Config.Vehicle
+    local coords = Config.VehicleSpawn
+    QBCore.Functions.SpawnVehicle(vehicle, function(veh)
+        SetVehicleNumberPlateText(veh, "SPEEDY"..tostring(math.random(1000, 9999)))
+        SetEntityAsMissionEntity(veh, true, true)
+        TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
+        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+        SetVehicleEngineOn(veh, true, true)
+        CurrentPlate = QBCore.Functions.GetPlate(veh)
+        SetVehicleFuelLevel(veh, 100.0)
+    end, coords, true)
+end)
+
+RegisterNetEvent('kk-speedyjob:server:jobGarage', function()
+    local veh = QBCore.Functions.GetClosestVehicle()
+    if DecorExistOn((veh), "bs_vehicle") then
+        QBCore.Functions.DeleteVehicle(veh)
+        QBCore.Functions.Notify("Ти върна колата", "success")
+    else
+        QBCore.Functions.Notify("Това не е фирмена кола", "error")
+    end
+end)
