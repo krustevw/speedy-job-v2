@@ -47,8 +47,9 @@ end)
 
 RegisterNetEvent('kk-speedyjob:server:jobGarage', function()
     local veh = QBCore.Functions.GetClosestVehicle()
-        QBCore.Functions.DeleteVehicle(veh)
-        QBCore.Functions.Notify("Ти върна колата", "success")
+        if veh == 'master2019':
+          QBCore.Functions.DeleteVehicle(veh)
+          QBCore.Functions.Notify("Ти върна колата", "success")
     else
         QBCore.Functions.Notify("Това не е фирмена кола", "error")
     end
