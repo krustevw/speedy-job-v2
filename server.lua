@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
---- Eventos
+--- Events
 
 RegisterNetEvent('kk-speedyjob:server:AddItem', function()
     local src = source
