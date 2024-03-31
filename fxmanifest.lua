@@ -2,7 +2,7 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-author 'Marttins#8421 (mt scripts)'
+author 'Kristiyan Krastev')'
 
 description 'kk-speedyjob'
 
