@@ -13,3 +13,11 @@ Config.DeliveryLoc7 = vector3(2476.17, 4087.42, 38.12)
 Config.DeliveryLoc8 = vector3(2418.47, 4020.58, 36.83)
 Config.DeliveryLoc9 = vector3(-1014.58, -1514.24, 6.52)
 Config.DeliveryLoc10 = vector3(-1268.69, -1303.74, 8.29)
+
+Config.GaragePed = "a_m_y_business_02"
+
+Config.PedLocation = vector4(-1195.07, -903.79, 12.83, 228.09)
+
+Config.VehicleSpawn = vector4(-1199.82, -909.19, 13.63, 33.28)
+
+Config.Vehicle = 'master2019'
