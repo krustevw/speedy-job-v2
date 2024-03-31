@@ -95,14 +95,14 @@ end)
 	    options = {
 		{ 
 		    type = "client",
-		    event = "randol_burgershot:client:jobGarage",
+		    event = "kk-speedyjob:server:jobGarage",
 		    icon = "fa-solid fa-clipboard-check",
 		    label = "Вземи кола",
 		    job = "speedy"
 		},
 		{ 
 		    type = "client",
-		    event = "randol_burgershot:client:storeGarage",
+		    event = "kk-speedyjob:server:storeGarage",
 		    icon = "fa-solid fa-clipboard-check",
 		    label = "Прибери кола",
 		    job = "speedy"
@@ -120,7 +120,7 @@ end
 
 
 
--- Funções
+-- Func()
 
 function ExportDeliveryTarget()
     local prob = math.random(1, 10)
