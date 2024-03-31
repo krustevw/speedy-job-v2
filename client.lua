@@ -1,6 +1,35 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
+local onDuty = false
 -- Events
+local function jobCheck()
+	canDo = true
+	if not onDuty then TriggerEvent('QBCore:Notify', "Излязал си от смяна!", 'error') canDo = false end
+	return canDo
+end
+
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    QBCore.Functions.GetPlayerData(function(PlayerData)
+        PlayerJob = PlayerData.job
+        if PlayerData.job.onduty then if PlayerData.job.name == "speedy" then TriggerServerEvent("QBCore:ToggleDuty") end end
+    end)
+end)
+RegisterNetEvent('QBCore:Client:OnJobUpdate') AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo) PlayerJob = JobInfo onDuty = PlayerJob.onduty end) 
+RegisterNetEvent('QBCore:Client:SetDuty') AddEventHandler('QBCore:Client:SetDuty', function(duty) onDuty = duty end)
+
+AddEventHandler('onResourceStart', function(resource)
+	installCheck()
+    if GetCurrentResourceName() == resource then
+		QBCore.Functions.GetPlayerData(function(PlayerData)
+			PlayerJob = PlayerData.job
+			if PlayerData.job.name == "speedy" then onDuty = PlayerJob.onduty end 
+		end)
+    end
+end)
+
+
+exports['qb-target']:AddBoxZone("Duty", vector3(-587.4, -1059.6, 23.45), 2.0, 2.5, { name="duty", heading = 270.0, debugPoly=Config.Debug, minZ=21.45, maxZ=23.45 }, 
+		{ options = { { type = "server", event = "QBCore:ToggleDuty", icon = "fas fa-clock", label = "Влез на смяна", job = "speedy" }, }, distance = 2.0 })
 
 RegisterNetEvent('kk-speedyjob:client:PedirEntrega', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"argue"})
